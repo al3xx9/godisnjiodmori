@@ -23,3 +23,16 @@ function logout_user(): void
 {
     unset($_SESSION['username']);
 }
+
+function broj_punih_meseci(string $start_date, string $end_date): int
+{
+    $date1 = strtotime($start_date);
+    $date2 = strtotime($end_date);
+    $months = 0;
+
+    while (($date1 = strtotime('+1 month', $date1)) <= $date2) {
+        $months++;
+    }
+
+    return $months;
+}

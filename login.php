@@ -3,8 +3,7 @@ require 'config.php';
 
 $error = false;
 
-$database = new Database();
-$database->read();
+$database = Database::getInstance();
 
 $users = (array) $database->get()['users'];
 

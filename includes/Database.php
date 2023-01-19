@@ -1,13 +1,23 @@
 <?php
 class Database
 {
-    protected string $db_file_path;
-    protected array $database;
+    private static $instance = null;
+    private string $db_file_path;
+    private array $database;
 
-    public function __construct(string $db_file_path = 'data/database.json')
+    private function __construct(string $db_file_path = 'data/database.json')
     {
         $this->db_file_path = $db_file_path;
         $this->read();
+    }
+
+    public static function getInstance()
+    {
+        if (!self::$instance) {
+            self::$instance = new Database();
+        }
+
+        return self::$instance;
     }
 
     public function read(): void
@@ -39,5 +49,6 @@ class Database
     public function set(array $database): void
     {
         $this->database = $database;
+        $this->write();
     }
 }

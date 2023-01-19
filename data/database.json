@@ -4,5 +4,41 @@
         "employee1": "$2y$10$aZywJ.Nd1UPA3d6nzIZwkO1CVVsI.StyR9yvDYfGpOOSvPsw80Hp6",
         "employee2": "$2y$10$H.SxYELMS5YQ.L/SwzWMQudR582KZ0u/0ms9uPsl53aA0PAFTleCa",
         "employee3": "$2y$10$y8lcElkRREYiAzdn04W6G.CuRPMCX9/DvqDF8kcWqPFmlPyqu2bUG"
+    },
+    "radnici": {
+        "1": {
+            "ime": "Ime i prezime radnika",
+            "pozicija": "Back-end developer",
+            "datum_pocetka_rada": "2022-01-23",
+            "is_ugovor_na_neodredjeno": true
+        },
+        "2": {
+            "ime": "Ime i prezime DRUGOG radnika",
+            "pozicija": "Back-end developer",
+            "datum_pocetka_rada": "2022-08-23",
+            "is_ugovor_na_neodredjeno": false
+        },
+        "3": {
+            "ime": "Ime i prezime TRECEG radnika",
+            "pozicija": "Back-end developer",
+            "datum_pocetka_rada": "2022-01-23",
+            "is_ugovor_na_neodredjeno": false
+        },
+        "4": {
+            "ime": "Ime i prezime CETVRTOG radnika",
+            "pozicija": "Back-end developer",
+            "datum_pocetka_rada": "2022-11-23",
+            "is_ugovor_na_neodredjeno": false
+        }
+    },
+    "iskorisceni_odmori": {
+        "2022": {
+            "2": [
+                {
+                    "datum_pocetka": "2022-01-18",
+                    "broj_dana": "3"
+                }
+            ]
+        }
     }
 }

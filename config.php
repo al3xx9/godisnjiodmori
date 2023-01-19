@@ -8,5 +8,11 @@ session_start();
 
 require 'includes/functions.php';
 require 'includes/Database.php';
+require 'includes/EntityInterface.php';
+require 'includes/AbstractEntity.php';
+require 'includes/Radnik.php';
+require 'includes/Uloge.php';
+require 'includes/ZahteviZaOdmor.php';
+require 'includes/BrojDanaOdmora.php';
 
 $www = 'http://localhost/godisnjiodmori/';
