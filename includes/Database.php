@@ -2,7 +2,7 @@
 class Database
 {
     protected string $db_file_path;
-    public array $database;
+    protected array $database;
 
     public function __construct(string $db_file_path = 'data/database.json')
     {
@@ -28,6 +28,16 @@ class Database
         if (empty($this->db_file_path) || !is_file($this->db_file_path)) {
             throw new Exception('DB file path incorectly set in constructor!');
         }
-        file_put_contents($this->db_file_path, json_encode($this->database, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+        file_put_contents($this->db_file_path, json_encode($this->database, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+    }
+
+    public function get(): array
+    {
+        return $this->database;
+    }
+
+    public function set(array $database): void
+    {
+        $this->database = $database;
     }
 }

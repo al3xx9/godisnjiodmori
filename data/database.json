@@ -1,1 +1,8 @@
-{}
+{
+    "users": {
+        "admin": "$2y$10$MLdq.4YYHQtbmHjEwRxTQ.StllGCn5Mp60XdVYkEP4uP5uv46SIRm",
+        "employee1": "$2y$10$aZywJ.Nd1UPA3d6nzIZwkO1CVVsI.StyR9yvDYfGpOOSvPsw80Hp6",
+        "employee2": "$2y$10$H.SxYELMS5YQ.L/SwzWMQudR582KZ0u/0ms9uPsl53aA0PAFTleCa",
+        "employee3": "$2y$10$y8lcElkRREYiAzdn04W6G.CuRPMCX9/DvqDF8kcWqPFmlPyqu2bUG"
+    }
+}

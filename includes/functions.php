@@ -1,20 +1,25 @@
 <?php
-function check_is_logged_in(): void
+function redirect(string $location): void
 {
     global $www;
-    if (!isset($_SESSION['user_id']) || !$_SESSION['user_id']) {
-        header('Location: ' . $www . 'login.php', true, 302);
-        exit;
+    header('Location: ' . $www . $location, true, 302);
+    exit;
+}
+
+function check_is_logged_in(): void
+{
+    if (!isset($_SESSION['username']) || !$_SESSION['username']) {
+        redirect('login.php');
     }
 }
 
-function login_user(int $user_id): void
+function login_user(string $username): void
 {
-    $_SESSION['user_id'] = $user_id;
+    $_SESSION['username'] = $username;
 }
 
 
 function logout_user(): void
 {
-    unset($_SESSION['user_id']);
+    unset($_SESSION['username']);
 }
