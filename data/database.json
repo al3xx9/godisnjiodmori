@@ -5,6 +5,11 @@
         "employee2": "$2y$10$H.SxYELMS5YQ.L/SwzWMQudR582KZ0u/0ms9uPsl53aA0PAFTleCa",
         "employee3": "$2y$10$y8lcElkRREYiAzdn04W6G.CuRPMCX9/DvqDF8kcWqPFmlPyqu2bUG"
     },
+    "users_radnici_mapping": {
+        "employee1": "1",
+        "employee2": "2",
+        "employee3": "3"
+    },
     "radnici": {
         "1": {
             "ime": "Ime i prezime radnika",
@@ -33,10 +38,18 @@
     },
     "iskorisceni_odmori": {
         "2022": {
-            "2": [
+            "1": [
                 {
                     "datum_pocetka": "2022-01-18",
-                    "broj_dana": "3"
+                    "broj_dana": "13"
+                }
+            ]
+        },
+        "2023": {
+            "2": [
+                {
+                    "datum_pocetka": "2023-01-18",
+                    "broj_dana": "13"
                 }
             ]
         }

@@ -36,3 +36,14 @@ function broj_punih_meseci(string $start_date, string $end_date): int
 
     return $months;
 }
+
+function get_radnik_by_username(string $username): ?Radnik
+{
+    $database = Database::getInstance();
+    $users_radnici_mapping = (array) $database->get()['users_radnici_mapping'];
+    $mapping = (int) $users_radnici_mapping[$username];
+    if (!$mapping) {
+        return null;
+    }
+    return new Radnik($mapping);
+}

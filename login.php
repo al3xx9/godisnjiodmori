@@ -1,6 +1,11 @@
 <?php
 require 'config.php';
 
+if (isset($_GET['logout']) && $_GET['logout'] == '1') {
+    logout_user();
+    redirect('login.php');
+}
+
 $error = false;
 
 $database = Database::getInstance();
@@ -26,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <?php if ($error) { ?>
     <p style="color:red">Pogresno korisnicko ime i/ili lozinka</p>
 <?php } ?>
-<form method="post" action="login.php">
+<form method="post" action="<?php echo htmlspecialchars($www); ?>login.php">
     <b>Username: </b><br />
     <input type="text" name="username" value="" />
     <br />
