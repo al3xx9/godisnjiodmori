@@ -36,6 +36,22 @@
             "is_ugovor_na_neodredjeno": false
         }
     },
+    "zahtevi_za_odmor": {
+        "1": [
+            {
+                "datum_pocetka": "2022-07-18",
+                "broj_dana": "13"
+            }
+        ]
+    },
+    "odbijeni_zahtevi": {
+        "1": [
+            {
+                "datum_pocetka": "2022-04-18",
+                "broj_dana": "13"
+            }
+        ]
+    },
     "iskorisceni_odmori": {
         "2022": {
             "1": [
