@@ -38,22 +38,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = 'Uneli ste vise dana odmora nego sto vam je na raspolaganju';
     }
 
-    // @todo provera da li neko na istoj poziciji ima preklapajuci odmor
+    $ima_preklapanje = ZahteviZaOdmor::proveri_preklapanje($radnik->pozicija, $datum_pocetka, $broj_dana);
 
-    $zahtevi_za_odmor = (array) $database->get()['zahtevi_za_odmor'];
-    if (!isset($zahtevi_za_odmor[$radnik->id])) {
-        $zahtevi_za_odmor[$radnik->id] = [];
+    if (!$error && $ima_preklapanje) {
+        $error = 'Ne mozete uzeti odmor za ovaj period jer postoji preklapanje sa radnikom na istoj poziciji!';
     }
 
-    $zahtevi_za_odmor[$radnik->id][] = [
-        'datum_pocetka' => $datum_pocetka,
-        'broj_dana' => $broj_dana
-    ];
+    if (!$error) {
+        $zahtevi_za_odmor = (array) $database->get()['zahtevi_za_odmor'];
+        if (!isset($zahtevi_za_odmor[$radnik->id])) {
+            $zahtevi_za_odmor[$radnik->id] = [];
+        }
 
-    $database->setOne('zahtevi_za_odmor', $zahtevi_za_odmor);
+        $zahtevi_za_odmor[$radnik->id][] = [
+            'datum_pocetka' => $datum_pocetka,
+            'broj_dana' => $broj_dana
+        ];
 
-    echo '<h1>Zahtev je uspesno unet!</h1><a href="' . htmlspecialchars($www) . 'index.php">Povratak na pocetnu</a>';
-    exit;
+        $database->setOne('zahtevi_za_odmor', $zahtevi_za_odmor);
+
+        echo '<h1>Zahtev je uspesno unet!</h1><a href="' . htmlspecialchars($www) . 'index.php">Povratak na pocetnu</a>';
+        exit;
+    }
 }
 ?>
 <h1>Sistem za elektronsku evidenciju godisnjih odmora</h1>
