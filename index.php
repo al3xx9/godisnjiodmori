@@ -38,8 +38,67 @@ if ($_SESSION['username'] != 'admin') {
 if ($_SESSION['username'] == 'admin') {
 ?>
     <h3>Zahtevi koji cekaju odobrenje</h3>
+    <table style="width:100%" cellpadding="0" cellspacing="0" border="1">
+        <tr>
+            <th>Radnik</th>
+            <th>Datum pocetka</th>
+            <th>Broj dana</th>
+            <th>Akcije</th>
+        </tr>
+        <?php foreach ($zahtevi_za_odmor as $radnik_id => $zahtevi_za_odmor_radnika) {
+            $_radnik = new Radnik($radnik_id); ?>
+            <?php foreach ($zahtevi_za_odmor_radnika as $zahtev) { ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($_radnik->ime); ?></td>
+                    <td><?php echo htmlspecialchars($zahtev['datum_pocetka']); ?></td>
+                    <td><?php echo htmlspecialchars($zahtev['broj_dana']); ?></td>
+                    <td>
+                        <a href="<?php echo htmlspecialchars($www); ?>admin-zahtev.php?action=prihvati&radnik_id=><?php echo htmlspecialchars($radnik_id); ?>&datum_pocetka=><?php echo htmlspecialchars($zahtev['datum_pocetka']); ?>&broj_dana=><?php echo htmlspecialchars($zahtev['broj_dana']); ?>">Prihvati</a>
+                        &middot;
+                        <a href="<?php echo htmlspecialchars($www); ?>admin-zahtev.php?action=odbij&radnik_id=><?php echo htmlspecialchars($radnik_id); ?>&datum_pocetka=><?php echo htmlspecialchars($zahtev['datum_pocetka']); ?>&broj_dana=><?php echo htmlspecialchars($zahtev['broj_dana']); ?>">Odbij</a>
+                    </td>
+                </tr>
+            <?php } ?>
+        <?php } ?>
+    </table>
     <h3>Odobreni zahtevi</h3>
+    <table style="width:100%" cellpadding="0" cellspacing="0" border="1">
+        <tr>
+            <th>Radnik</th>
+            <th>Datum pocetka</th>
+            <th>Broj dana</th>
+        </tr>
+        <?php foreach ($iskorisceni_odmori as $godina => $iskorisceni_odmori_po_godini) { ?>
+            <?php foreach ($iskorisceni_odmori_po_godini as $radnik_id => $iskorisceni_odmori_radnika) {
+                $_radnik = new Radnik($radnik_id); ?>
+                <?php foreach ($iskorisceni_odmori_radnika as $zahtev) { ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($_radnik->ime); ?></td>
+                        <td><?php echo htmlspecialchars($zahtev['datum_pocetka']); ?></td>
+                        <td><?php echo htmlspecialchars($zahtev['broj_dana']); ?></td>
+                    </tr>
+                <?php } ?>
+            <?php } ?>
+        <?php } ?>
+    </table>
     <h3>Odbijeni zahtevi</h3>
+    <table style="width:100%" cellpadding="0" cellspacing="0" border="1">
+        <tr>
+            <th>Radnik</th>
+            <th>Datum pocetka</th>
+            <th>Broj dana</th>
+        </tr>
+        <?php foreach ($odbijeni_zahtevi as $radnik_id => $odbijeni_zahtevi_radnika) {
+            $_radnik = new Radnik($radnik_id); ?>
+            <?php foreach ($odbijeni_zahtevi_radnika as $zahtev) { ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($_radnik->ime); ?></td>
+                    <td><?php echo htmlspecialchars($zahtev['datum_pocetka']); ?></td>
+                    <td><?php echo htmlspecialchars($zahtev['broj_dana']); ?></td>
+                </tr>
+            <?php } ?>
+        <?php } ?>
+    </table>
 <?php
 } else {
 ?>
@@ -59,8 +118,8 @@ if ($_SESSION['username'] == 'admin') {
         </tr>
         <?php foreach ($odobreni_zahtevi as $odobren_zahtev) { ?>
             <tr>
-                <td><?php echo $odobren_zahtev['datum_pocetka']; ?></td>
-                <td><?php echo $odobren_zahtev['broj_dana']; ?></td>
+                <td><?php echo htmlspecialchars($odobren_zahtev['datum_pocetka']); ?></td>
+                <td><?php echo htmlspecialchars($odobren_zahtev['broj_dana']); ?></td>
             </tr>
         <?php } ?>
     </table>
@@ -72,8 +131,8 @@ if ($_SESSION['username'] == 'admin') {
         </tr>
         <?php foreach ($moji_odbijeni_zahtevi as $moj_odbijen_zahtev) { ?>
             <tr>
-                <td><?php echo $moj_odbijen_zahtev['datum_pocetka']; ?></td>
-                <td><?php echo $moj_odbijen_zahtev['broj_dana']; ?></td>
+                <td><?php echo htmlspecialchars($moj_odbijen_zahtev['datum_pocetka']); ?></td>
+                <td><?php echo htmlspecialchars($moj_odbijen_zahtev['broj_dana']); ?></td>
             </tr>
         <?php } ?>
     </table>
@@ -85,8 +144,8 @@ if ($_SESSION['username'] == 'admin') {
         </tr>
         <?php foreach ($zahtevi_na_cekanju as $zahtev_na_cekanju) { ?>
             <tr>
-                <td><?php echo $zahtev_na_cekanju['datum_pocetka']; ?></td>
-                <td><?php echo $zahtev_na_cekanju['broj_dana']; ?></td>
+                <td><?php echo htmlspecialchars($zahtev_na_cekanju['datum_pocetka']); ?></td>
+                <td><?php echo htmlspecialchars($zahtev_na_cekanju['broj_dana']); ?></td>
             </tr>
         <?php } ?>
     </table>

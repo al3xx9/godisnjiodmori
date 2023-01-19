@@ -51,4 +51,10 @@ class Database
         $this->database = $database;
         $this->write();
     }
+
+    public function setOne(string $key, mixed $value): void
+    {
+        $this->database[$key] = $value;
+        $this->write();
+    }
 }
