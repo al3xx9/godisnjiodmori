@@ -53,9 +53,9 @@ if ($_SESSION['username'] == 'admin') {
                     <td><?php echo htmlspecialchars($zahtev['datum_pocetka']); ?></td>
                     <td><?php echo htmlspecialchars($zahtev['broj_dana']); ?></td>
                     <td>
-                        <a href="<?php echo htmlspecialchars($www); ?>admin-zahtev.php?action=prihvati&radnik_id=><?php echo htmlspecialchars($radnik_id); ?>&datum_pocetka=><?php echo htmlspecialchars($zahtev['datum_pocetka']); ?>&broj_dana=><?php echo htmlspecialchars($zahtev['broj_dana']); ?>">Prihvati</a>
+                        <a href="<?php echo htmlspecialchars($www); ?>admin-zahtev.php?action=prihvati&radnik_id=<?php echo htmlspecialchars($radnik_id); ?>&datum_pocetka=<?php echo htmlspecialchars($zahtev['datum_pocetka']); ?>&broj_dana=<?php echo htmlspecialchars($zahtev['broj_dana']); ?>">Prihvati</a>
                         &middot;
-                        <a href="<?php echo htmlspecialchars($www); ?>admin-zahtev.php?action=odbij&radnik_id=><?php echo htmlspecialchars($radnik_id); ?>&datum_pocetka=><?php echo htmlspecialchars($zahtev['datum_pocetka']); ?>&broj_dana=><?php echo htmlspecialchars($zahtev['broj_dana']); ?>">Odbij</a>
+                        <a href="<?php echo htmlspecialchars($www); ?>admin-zahtev.php?action=odbij&radnik_id=<?php echo htmlspecialchars($radnik_id); ?>&datum_pocetka=<?php echo htmlspecialchars($zahtev['datum_pocetka']); ?>&broj_dana=<?php echo htmlspecialchars($zahtev['broj_dana']); ?>">Odbij</a>
                     </td>
                 </tr>
             <?php } ?>

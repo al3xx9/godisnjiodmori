@@ -37,22 +37,17 @@
         }
     },
     "zahtevi_za_odmor": {
-        "1": [
-            {
-                "datum_pocetka": "2022-07-18",
-                "broj_dana": "13"
-            },
-            {
-                "datum_pocetka": "2023-01-22",
-                "broj_dana": 20
-            }
-        ]
+        "1": []
     },
     "odbijeni_zahtevi": {
         "1": [
             {
                 "datum_pocetka": "2022-04-18",
                 "broj_dana": "13"
+            },
+            {
+                "datum_pocetka": "2023-01-22",
+                "broj_dana": "20"
             }
         ]
     },
@@ -61,6 +56,10 @@
             "1": [
                 {
                     "datum_pocetka": "2022-01-18",
+                    "broj_dana": "13"
+                },
+                {
+                    "datum_pocetka": "2022-07-18",
                     "broj_dana": "13"
                 }
             ]
